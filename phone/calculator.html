@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="./medofi.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="phone">
+        <div id="statusBar">
+            <div id="time">12:00 PM</div>
+            <div id="battery">
+                <img src="./battery.png" alt="Battery" />
+                <span>100%</span>
+            </div>
+        </div>
+
+        <div id="calculator">
+            <input type="text" id="display" disabled>
+            <div class="buttons">
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="deleteLast()">⌫</button>
+                <button onclick="appendSymbol('/')">/</button>
+                <button onclick="appendSymbol('*')">*</button>
+                
+                <button onclick="appendSymbol('7')">7</button>
+                <button onclick="appendSymbol('8')">8</button>
+                <button onclick="appendSymbol('9')">9</button>
+                <button onclick="appendSymbol('-')">-</button>
+                
+                <button onclick="appendSymbol('4')">4</button>
+                <button onclick="appendSymbol('5')">5</button>
+                <button onclick="appendSymbol('6')">6</button>
+                <button onclick="appendSymbol('+')">+</button>
+                
+                <button onclick="appendSymbol('1')">1</button>
+                <button onclick="appendSymbol('2')">2</button>
+                <button onclick="appendSymbol('3')">3</button>
+                <button onclick="calculate()" class="equals">=</button>
+                
+                <button onclick="appendSymbol('0')" class="zero">0</button>
+                <button onclick="appendSymbol('.')">.</button>
+            </div>
+        </div>
+
+        <div id="navigationBar">
+            <button onclick="window.location.href='medofi.html'">🏠</button>
+            <button onclick="navigate('apps')">📂</button>
+            <button onclick="navigate('settings')">⚙️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Calculator functions
+        function appendSymbol(symbol) {
+            const display = document.getElementById('display');
+            display.value += symbol;
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function deleteLast() {
+            const display = document.getElementById('display');
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            const display = document.getElementById('display');
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>

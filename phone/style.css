@@ -1,0 +1,286 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#phone {
+    width: 360px;
+    height: 640px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#statusBar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+#statusBar img {
+    width: 20px;
+    height: 20px;
+}
+
+#homeScreen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    background-image: url('icons/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.appIcon {
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.appIcon:hover {
+    transform: scale(1.1);
+}
+
+.appIcon img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+
+.appIcon p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+#navigationBar {
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ccc;
+}
+
+#navigationBar button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#navigationBar button:hover {
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    #phone {
+        width: 90%;
+        height: 90%;
+    }
+
+    .appIcon {
+        width: 70px;
+    }
+
+    .appIcon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #navigationBar button {
+        font-size: 20px;
+    }
+}
+/* Calculator Styles */
+#calculator {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#display {
+    width: 80%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+
+.buttons {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.buttons button:hover {
+    background-color: #ddd;
+}
+
+.buttons .equals {
+    grid-column: span 2;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.buttons .equals:hover {
+    background-color: #45a049;
+}
+
+.buttons .zero {
+    grid-column: span 2;
+}
+/* Contacts Styles */
+#contacts {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contacts h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#contacts ul {
+    list-style-type: none;
+    width: 100%;
+}
+
+#contacts ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#contacts ul li:hover {
+    background-color: #ddd;
+}
+
+#contacts ul li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+#contacts ul li span {
+    font-size: 18px;
+    color: #333;
+}
+/* Messages Styles */
+#messages {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.message-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+.message.received {
+    background-color: #f1f1f1;
+    align-self: flex-start;
+}
+
+.message.sent {
+    background-color: #4CAF50;
+    color: white;
+    align-self: flex-end;
+}
+
+#messageInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+
+#messageInput input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#messageInput button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#messageInput button:hover {
+    background-color: #45a049;
+}
