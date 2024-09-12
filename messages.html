@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <link rel="icon" type="image/png" href="./medofi.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="phone">
+        <div id="statusBar">
+            <div id="time">12:00 PM</div>
+            <div id="battery">
+                <img src="./battery.png" alt="Battery" />
+                <span>100%</span>
+            </div>
+        </div>
+
+        <div id="messages">
+            <div class="message-container">
+                <div class="message received">
+                    <p>Hello! How are you?</p>
+                </div>
+                <div class="message sent">
+                    <p>I'm good, thanks! How about you?</p>
+                </div>
+                <!-- Add more messages as needed -->
+            </div>
+
+            <div id="messageInput">
+                <input type="text" id="messageText" placeholder="Type a message..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div id="navigationBar">
+            <button onclick="window.location.href='medofi.html'">🏠</button>
+            <button onclick="navigate('apps')">📂</button>
+            <button onclick="navigate('settings')">⚙️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to simulate sending a message
+        function sendMessage() {
+            const messageText = document.getElementById('messageText').value;
+            if (messageText.trim() !== "") {
+                const messageContainer = document.querySelector('.message-container');
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'sent');
+                newMessage.innerHTML = `<p>${messageText}</p>`;
+                messageContainer.appendChild(newMessage);
+                document.getElementById('messageText').value = ""; // Clear input
+            }
+        }
+    </script>
+</body>
+</html>
